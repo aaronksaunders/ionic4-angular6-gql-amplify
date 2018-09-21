@@ -1,0 +1,7 @@
+type Tour @model {
+  id: ID!
+  name: String!
+  company: String!
+  email: String!
+  description: String
+}
