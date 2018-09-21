@@ -4,4 +4,25 @@ type Tour @model {
   company: String!
   email: String!
   description: String
+  visibility: Visibility
+}
+
+type Picture {
+  id: ID!
+  name: String
+  visibility: Visibility
+  owner: String
+  file: S3Object
+  createdAt: String
+}
+
+type S3Object {
+  bucket: String!
+  region: String!
+  key: String!
+}
+
+enum Visibility {
+  public
+  private
 }

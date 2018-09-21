@@ -8,6 +8,12 @@ export type CreateTourInput = {
   description?: string | null,
 };
 
+export enum Visibility {
+  public = "public",
+  private = "private",
+}
+
+
 export type UpdateTourInput = {
   id: string,
   name?: string | null,
@@ -69,6 +75,7 @@ export type CreateTourMutation = {
     company: string,
     email: string,
     description: string | null,
+    visibility: Visibility | null,
   } | null,
 };
 
@@ -84,6 +91,7 @@ export type UpdateTourMutation = {
     company: string,
     email: string,
     description: string | null,
+    visibility: Visibility | null,
   } | null,
 };
 
@@ -99,6 +107,7 @@ export type DeleteTourMutation = {
     company: string,
     email: string,
     description: string | null,
+    visibility: Visibility | null,
   } | null,
 };
 
@@ -114,6 +123,7 @@ export type GetTourQuery = {
     company: string,
     email: string,
     description: string | null,
+    visibility: Visibility | null,
   } | null,
 };
 
@@ -146,6 +156,7 @@ export type OnCreateTourSubscription = {
     company: string,
     email: string,
     description: string | null,
+    visibility: Visibility | null,
   } | null,
 };
 
@@ -157,6 +168,7 @@ export type OnUpdateTourSubscription = {
     company: string,
     email: string,
     description: string | null,
+    visibility: Visibility | null,
   } | null,
 };
 
@@ -168,5 +180,6 @@ export type OnDeleteTourSubscription = {
     company: string,
     email: string,
     description: string | null,
+    visibility: Visibility | null,
   } | null,
 };

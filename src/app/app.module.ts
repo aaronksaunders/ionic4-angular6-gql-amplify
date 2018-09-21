@@ -1,25 +1,33 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, RouteReuseStrategy, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { RouterModule, RouteReuseStrategy, Routes } from "@angular/router";
 
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { IonicModule, IonicRouteStrategy } from "@ionic/angular";
+import { SplashScreen } from "@ionic-native/splash-screen/ngx";
+import { StatusBar } from "@ionic-native/status-bar/ngx";
 
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from "./app.component";
+import { AppRoutingModule } from "./app-routing.module";
 
 // AWS-AMPLIFY - https://aws-amplify.github.io/amplify-js/media/angular_guide
-import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
-import Amplify from "aws-amplify"
-import config from '../aws-exports'
+import { AmplifyAngularModule, AmplifyService } from "aws-amplify-angular";
+import Amplify, { Auth } from "aws-amplify";
+import config from "../aws-exports";
 
-Amplify.configure(config)
+Amplify.configure({
+  ...config,
+  complexObjectsCredentials: () => Auth.currentCredentials()
+});
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AmplifyAngularModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    AmplifyAngularModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,

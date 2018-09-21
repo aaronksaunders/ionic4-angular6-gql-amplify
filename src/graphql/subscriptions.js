@@ -9,6 +9,7 @@ export const OnCreateTour = gql`
       company
       email
       description
+      visibility
     }
   }
 `;
@@ -20,6 +21,7 @@ export const OnUpdateTour = gql`
       company
       email
       description
+      visibility
     }
   }
 `;
@@ -31,6 +33,7 @@ export const OnDeleteTour = gql`
       company
       email
       description
+      visibility
     }
   }
 `;

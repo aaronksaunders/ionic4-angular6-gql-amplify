@@ -9,6 +9,7 @@ export const GetTour = gql`
       company
       email
       description
+      visibility
     }
   }
 `;
