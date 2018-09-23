@@ -6,6 +6,7 @@ export type CreateTourInput = {
   company: string,
   email: string,
   description?: string | null,
+  owner: string,
 };
 
 export enum Visibility {
@@ -20,9 +21,27 @@ export type UpdateTourInput = {
   company?: string | null,
   email?: string | null,
   description?: string | null,
+  owner?: string | null,
 };
 
 export type DeleteTourInput = {
+  id?: string | null,
+};
+
+export type CreatePictureInput = {
+  name: string,
+  owner: string,
+  createdAt?: string | null,
+};
+
+export type UpdatePictureInput = {
+  id: string,
+  name?: string | null,
+  owner?: string | null,
+  createdAt?: string | null,
+};
+
+export type DeletePictureInput = {
   id?: string | null,
 };
 
@@ -32,6 +51,7 @@ export type ModelTourFilterInput = {
   company?: ModelStringFilterInput | null,
   email?: ModelStringFilterInput | null,
   description?: ModelStringFilterInput | null,
+  owner?: ModelStringFilterInput | null,
   and?: Array< ModelTourFilterInput | null > | null,
   or?: Array< ModelTourFilterInput | null > | null,
   not?: ModelTourFilterInput | null,
@@ -63,6 +83,16 @@ export type ModelStringFilterInput = {
   beginsWith?: string | null,
 };
 
+export type ModelPictureFilterInput = {
+  id?: ModelIDFilterInput | null,
+  name?: ModelStringFilterInput | null,
+  owner?: ModelStringFilterInput | null,
+  createdAt?: ModelStringFilterInput | null,
+  and?: Array< ModelPictureFilterInput | null > | null,
+  or?: Array< ModelPictureFilterInput | null > | null,
+  not?: ModelPictureFilterInput | null,
+};
+
 export type CreateTourMutationVariables = {
   input: CreateTourInput,
 };
@@ -75,6 +105,7 @@ export type CreateTourMutation = {
     company: string,
     email: string,
     description: string | null,
+    owner: string,
     visibility: Visibility | null,
   } | null,
 };
@@ -91,6 +122,7 @@ export type UpdateTourMutation = {
     company: string,
     email: string,
     description: string | null,
+    owner: string,
     visibility: Visibility | null,
   } | null,
 };
@@ -107,7 +139,71 @@ export type DeleteTourMutation = {
     company: string,
     email: string,
     description: string | null,
+    owner: string,
     visibility: Visibility | null,
+  } | null,
+};
+
+export type CreatePictureMutationVariables = {
+  input: CreatePictureInput,
+};
+
+export type CreatePictureMutation = {
+  createPicture:  {
+    __typename: "Picture",
+    id: string,
+    name: string,
+    visibility: Visibility,
+    owner: string,
+    file:  {
+      __typename: "S3Object",
+      bucket: string,
+      region: string,
+      key: string,
+    },
+    createdAt: string | null,
+  } | null,
+};
+
+export type UpdatePictureMutationVariables = {
+  input: UpdatePictureInput,
+};
+
+export type UpdatePictureMutation = {
+  updatePicture:  {
+    __typename: "Picture",
+    id: string,
+    name: string,
+    visibility: Visibility,
+    owner: string,
+    file:  {
+      __typename: "S3Object",
+      bucket: string,
+      region: string,
+      key: string,
+    },
+    createdAt: string | null,
+  } | null,
+};
+
+export type DeletePictureMutationVariables = {
+  input: DeletePictureInput,
+};
+
+export type DeletePictureMutation = {
+  deletePicture:  {
+    __typename: "Picture",
+    id: string,
+    name: string,
+    visibility: Visibility,
+    owner: string,
+    file:  {
+      __typename: "S3Object",
+      bucket: string,
+      region: string,
+      key: string,
+    },
+    createdAt: string | null,
   } | null,
 };
 
@@ -123,6 +219,7 @@ export type GetTourQuery = {
     company: string,
     email: string,
     description: string | null,
+    owner: string,
     visibility: Visibility | null,
   } | null,
 };
@@ -143,6 +240,48 @@ export type ListToursQuery = {
       company: string,
       email: string,
       description: string | null,
+      owner: string,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
+export type GetPictureQueryVariables = {
+  id: string,
+};
+
+export type GetPictureQuery = {
+  getPicture:  {
+    __typename: "Picture",
+    id: string,
+    name: string,
+    visibility: Visibility,
+    owner: string,
+    file:  {
+      __typename: "S3Object",
+      bucket: string,
+      region: string,
+      key: string,
+    },
+    createdAt: string | null,
+  } | null,
+};
+
+export type ListPicturesQueryVariables = {
+  filter?: ModelPictureFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListPicturesQuery = {
+  listPictures:  {
+    __typename: "ModelPictureConnection",
+    items:  Array< {
+      __typename: "Picture",
+      id: string,
+      name: string,
+      owner: string,
+      createdAt: string | null,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -156,6 +295,7 @@ export type OnCreateTourSubscription = {
     company: string,
     email: string,
     description: string | null,
+    owner: string,
     visibility: Visibility | null,
   } | null,
 };
@@ -168,6 +308,7 @@ export type OnUpdateTourSubscription = {
     company: string,
     email: string,
     description: string | null,
+    owner: string,
     visibility: Visibility | null,
   } | null,
 };
@@ -180,6 +321,58 @@ export type OnDeleteTourSubscription = {
     company: string,
     email: string,
     description: string | null,
+    owner: string,
     visibility: Visibility | null,
+  } | null,
+};
+
+export type OnCreatePictureSubscription = {
+  onCreatePicture:  {
+    __typename: "Picture",
+    id: string,
+    name: string,
+    visibility: Visibility,
+    owner: string,
+    file:  {
+      __typename: "S3Object",
+      bucket: string,
+      region: string,
+      key: string,
+    },
+    createdAt: string | null,
+  } | null,
+};
+
+export type OnUpdatePictureSubscription = {
+  onUpdatePicture:  {
+    __typename: "Picture",
+    id: string,
+    name: string,
+    visibility: Visibility,
+    owner: string,
+    file:  {
+      __typename: "S3Object",
+      bucket: string,
+      region: string,
+      key: string,
+    },
+    createdAt: string | null,
+  } | null,
+};
+
+export type OnDeletePictureSubscription = {
+  onDeletePicture:  {
+    __typename: "Picture",
+    id: string,
+    name: string,
+    visibility: Visibility,
+    owner: string,
+    file:  {
+      __typename: "S3Object",
+      bucket: string,
+      region: string,
+      key: string,
+    },
+    createdAt: string | null,
   } | null,
 };

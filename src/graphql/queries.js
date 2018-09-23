@@ -9,6 +9,7 @@ export const GetTour = gql`
       company
       email
       description
+      owner
       visibility
     }
   }
@@ -26,6 +27,40 @@ export const ListTours = gql`
         company
         email
         description
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const GetPicture = gql`
+  query GetPicture($id: ID!) {
+    getPicture(id: $id) {
+      id
+      name
+      visibility
+      owner
+      file {
+        bucket
+        region
+        key
+      }
+      createdAt
+    }
+  }
+`;
+export const ListPictures = gql`
+  query ListPictures(
+    $filter: ModelPictureFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listPictures(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        owner
+        createdAt
       }
       nextToken
     }

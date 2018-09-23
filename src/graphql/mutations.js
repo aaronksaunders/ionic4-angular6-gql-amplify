@@ -9,6 +9,7 @@ export const CreateTour = gql`
       company
       email
       description
+      owner
       visibility
     }
   }
@@ -21,6 +22,7 @@ export const UpdateTour = gql`
       company
       email
       description
+      owner
       visibility
     }
   }
@@ -33,7 +35,56 @@ export const DeleteTour = gql`
       company
       email
       description
+      owner
       visibility
+    }
+  }
+`;
+export const CreatePicture = gql`
+  mutation CreatePicture($input: CreatePictureInput!) {
+    createPicture(input: $input) {
+      id
+      name
+      visibility
+      owner
+      file {
+        bucket
+        region
+        key
+      }
+      createdAt
+    }
+  }
+`;
+export const UpdatePicture = gql`
+  mutation UpdatePicture($input: UpdatePictureInput!) {
+    updatePicture(input: $input) {
+      id
+      name
+      visibility
+      owner
+      file {
+        bucket
+        region
+        key
+      }
+      createdAt
+    }
+  }
+`;
+export const DeletePicture = gql`
+  mutation DeletePicture($input: DeletePictureInput!) {
+    deletePicture(input: $input) {
+      id
+      name
+      visibility
+      owner
+      file {
+        bucket
+        region
+        key
+      }
+      createdAt
     }
   }
 `;

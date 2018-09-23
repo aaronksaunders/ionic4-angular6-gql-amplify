@@ -2,17 +2,25 @@ type Mutation {
   createTour(input: CreateTourInput!): Tour
   updateTour(input: UpdateTourInput!): Tour
   deleteTour(input: DeleteTourInput!): Tour
+  createPicture(input: CreatePictureInput!): Picture
+  updatePicture(input: UpdatePictureInput!): Picture
+  deletePicture(input: DeletePictureInput!): Picture
 }
 
 type Query {
   getTour(id: ID!): Tour
   listTours(filter: ModelTourFilterInput, limit: Int, nextToken: String): ModelTourConnection
+  getPicture(id: ID!): Picture
+  listPictures(filter: ModelPictureFilterInput, limit: Int, nextToken: String): ModelPictureConnection
 }
 
 type Subscription {
   onCreateTour: Tour @aws_subscribe(mutations: ["createTour"])
   onUpdateTour: Tour @aws_subscribe(mutations: ["updateTour"])
   onDeleteTour: Tour @aws_subscribe(mutations: ["deleteTour"])
+  onCreatePicture: Picture @aws_subscribe(mutations: ["createPicture"])
+  onUpdatePicture: Picture @aws_subscribe(mutations: ["updatePicture"])
+  onDeletePicture: Picture @aws_subscribe(mutations: ["deletePicture"])
 }
 
 type Tour {
@@ -21,6 +29,7 @@ type Tour {
   company: String!
   email: String!
   description: String
+  owner: String!
   visibility: Visibility
 }
 
@@ -95,6 +104,7 @@ input ModelTourFilterInput {
   company: ModelStringFilterInput
   email: ModelStringFilterInput
   description: ModelStringFilterInput
+  owner: ModelStringFilterInput
   and: [ModelTourFilterInput]
   or: [ModelTourFilterInput]
   not: ModelTourFilterInput
@@ -105,6 +115,7 @@ input CreateTourInput {
   company: String!
   email: String!
   description: String
+  owner: String!
 }
 
 input UpdateTourInput {
@@ -113,6 +124,7 @@ input UpdateTourInput {
   company: String
   email: String
   description: String
+  owner: String
 }
 
 input DeleteTourInput {
@@ -121,11 +133,50 @@ input DeleteTourInput {
 
 type Picture {
   id: ID!
-  name: String
-  visibility: Visibility
-  owner: String
-  file: S3Object
+  name: String!
+  visibility: Visibility!
+  owner: String!
+  file: S3Object!
   createdAt: String
+}
+
+type ModelPictureConnection {
+  items: [Picture]
+  nextToken: String
+}
+
+input ModelPictureFilterInput {
+  id: ModelIDFilterInput
+  name: ModelStringFilterInput
+  owner: ModelStringFilterInput
+  createdAt: ModelStringFilterInput
+  and: [ModelPictureFilterInput]
+  or: [ModelPictureFilterInput]
+  not: ModelPictureFilterInput
+}
+
+input S3ObjectInput {
+  bucket: String!
+  region: String!
+  key: String!
+}
+
+input CreatePictureInput {
+  name: String!
+  owner: String!
+  createdAt: String
+  file: S3ObjectInput!
+}
+
+input UpdatePictureInput {
+  id: ID!
+  name: String
+  owner: String
+  createdAt: String
+}
+
+input DeletePictureInput {
+  id: ID
 }
 
 type S3Object {

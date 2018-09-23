@@ -9,6 +9,7 @@ export const OnCreateTour = gql`
       company
       email
       description
+      owner
       visibility
     }
   }
@@ -21,6 +22,7 @@ export const OnUpdateTour = gql`
       company
       email
       description
+      owner
       visibility
     }
   }
@@ -33,7 +35,56 @@ export const OnDeleteTour = gql`
       company
       email
       description
+      owner
       visibility
+    }
+  }
+`;
+export const OnCreatePicture = gql`
+  subscription OnCreatePicture {
+    onCreatePicture {
+      id
+      name
+      visibility
+      owner
+      file {
+        bucket
+        region
+        key
+      }
+      createdAt
+    }
+  }
+`;
+export const OnUpdatePicture = gql`
+  subscription OnUpdatePicture {
+    onUpdatePicture {
+      id
+      name
+      visibility
+      owner
+      file {
+        bucket
+        region
+        key
+      }
+      createdAt
+    }
+  }
+`;
+export const OnDeletePicture = gql`
+  subscription OnDeletePicture {
+    onDeletePicture {
+      id
+      name
+      visibility
+      owner
+      file {
+        bucket
+        region
+        key
+      }
+      createdAt
     }
   }
 `;
