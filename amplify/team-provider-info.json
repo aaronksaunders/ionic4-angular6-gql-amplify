@@ -1,0 +1,14 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "ionic4angular6gqlamp-dev-20190803202040-authRole",
+            "UnauthRoleArn": "arn:aws:iam::903466642916:role/ionic4angular6gqlamp-dev-20190803202040-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::903466642916:role/ionic4angular6gqlamp-dev-20190803202040-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "ionic4angular6gqlamp-dev-20190803202040-deployment",
+            "UnauthRoleName": "ionic4angular6gqlamp-dev-20190803202040-unauthRole",
+            "StackName": "ionic4angular6gqlamp-dev-20190803202040",
+            "StackId": "arn:aws:cloudformation:us-east-1:903466642916:stack/ionic4angular6gqlamp-dev-20190803202040/b191cc10-b64d-11e9-8845-0ae8cc519968"
+        }
+    }
+}

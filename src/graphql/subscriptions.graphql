@@ -1,0 +1,73 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateTour {
+  onCreateTour {
+    id
+    name
+    company
+    email
+    description
+    visibility
+  }
+}
+subscription OnUpdateTour {
+  onUpdateTour {
+    id
+    name
+    company
+    email
+    description
+    visibility
+  }
+}
+subscription OnDeleteTour {
+  onDeleteTour {
+    id
+    name
+    company
+    email
+    description
+    visibility
+  }
+}
+subscription OnCreatePicture {
+  onCreatePicture {
+    id
+    name
+    visibility
+    owner
+    file {
+      bucket
+      region
+      key
+    }
+    createdAt
+  }
+}
+subscription OnUpdatePicture {
+  onUpdatePicture {
+    id
+    name
+    visibility
+    owner
+    file {
+      bucket
+      region
+      key
+    }
+    createdAt
+  }
+}
+subscription OnDeletePicture {
+  onDeletePicture {
+    id
+    name
+    visibility
+    owner
+    file {
+      bucket
+      region
+      key
+    }
+    createdAt
+  }
+}

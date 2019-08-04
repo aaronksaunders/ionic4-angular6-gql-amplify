@@ -14,9 +14,10 @@ import { AmplifyAngularModule, AmplifyService } from "aws-amplify-angular";
 import Amplify, { Auth } from "aws-amplify";
 import config from "../aws-exports";
 
+debugger
 Amplify.configure({
   ...config,
-  complexObjectsCredentials: () => Auth.currentCredentials()
+  //complexObjectsCredentials: () => Auth.currentCredentials()
 });
 
 @NgModule({

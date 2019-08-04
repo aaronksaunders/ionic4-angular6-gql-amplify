@@ -1,72 +1,29 @@
 {
-	"providers": {
-		"awscloudformation": {
-			"AuthRoleName": "amplify1-20180920231258-authRole",
-			"UnauthRoleArn": "arn:aws:iam::903466642916:role/amplify1-20180920231258-unauthRole",
-			"AuthRoleArn": "arn:aws:iam::903466642916:role/amplify1-20180920231258-authRole",
-			"Region": "us-east-1",
-			"DeploymentBucketName": "amplify1-20180920231258-deployment",
-			"UnauthRoleName": "amplify1-20180920231258-unauthRole",
-			"StackName": "amplify1-20180920231258",
-			"StackId": "arn:aws:cloudformation:us-east-1:903466642916:stack/amplify1-20180920231258/3dbb7660-bd4c-11e8-bd98-50fae98b1835"
-		}
-	},
-	"api": {
-		"amplify1": {
-			"service": "AppSync",
-			"providerPlugin": "awscloudformation",
-			"output": {
-				"securityType": "AMAZON_COGNITO_USER_POOLS",
-				"GraphQLAPIIdOutput": "i3bd3fedovdhnbrvrfffboislm",
-				"GraphQLAPIEndpointOutput": "https://p3fi2vz35bcgje5owjlisd35jy.appsync-api.us-east-1.amazonaws.com/graphql",
-				"GraphQLAPIKeyOutput": "da2-32o473gu3jgt3kdltmppu6e7gu",
-				"AuthCognitoUserPoolIdOutput": "us-east-1_qwXGO1rJI",
-				"AuthCognitoUserPoolNativeClientId": "See UserPool: us-east-1_qwXGO1rJI",
-				"AuthCognitoUserPoolJSClientId": "See UserPool: us-east-1_qwXGO1rJI"
-			},
-			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify1-20180920231258-deployment/amplify-cfn-templates/api/cloudformation-template.json",
-				"logicalId": "apiamplify1"
-			},
-			"lastPushTimeStamp": "2018-09-22T04:42:18.895Z",
-			"lastPushDirHash": "hP3doxOKX+u8NKN5i+bNaSLJW2I="
-		}
-	},
-	"auth": {
-		"cognito8f975255": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation",
-			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify1-20180920231258-deployment/amplify-cfn-templates/auth/cognito8f975255-cloudformation-template.yml",
-				"logicalId": "authcognito8f975255"
-			},
-			"lastPushTimeStamp": "2018-09-22T04:42:17.532Z",
-			"output": {
-				"AppClientSecret": "1bmu9n5rhcndr0j19bdsgk4uass6k892ckcq4v5tcdknsd1qfokj",
-				"UserPoolId": "us-east-1_qwXGO1rJI",
-				"AppClientIDWeb": "2fg63t4an38tpnmourhajbjcdg",
-				"AppClientID": "56nclterlboreaiqriahbt5ls8",
-				"IdentityPoolId": "us-east-1:759e20fe-351d-4c53-9ecf-d0e91955e776",
-				"IdentityPoolName": "cognito8f975255_identitypool_8f975255",
-				"UserPoolName": "cognito8f975255_userpool_8f975255"
-			},
-			"lastPushDirHash": "y1cRnNgu1Zkq7t30npNVOrOs+PE="
-		}
-	},
-	"storage": {
-		"amplify1images": {
-			"service": "S3",
-			"providerPlugin": "awscloudformation",
-			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify1-20180920231258-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
-				"logicalId": "storageamplify1images"
-			},
-			"lastPushTimeStamp": "2018-09-22T04:42:17.533Z",
-			"output": {
-				"BucketName": "amplify1images",
-				"Region": "us-east-1"
-			},
-			"lastPushDirHash": "2uqzCdUAe7DyL4rnHo4XxV8WF7I="
-		}
-	}
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "ionic4angular6gqlamp-dev-20190803202040-authRole",
+      "UnauthRoleArn": "arn:aws:iam::903466642916:role/ionic4angular6gqlamp-dev-20190803202040-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::903466642916:role/ionic4angular6gqlamp-dev-20190803202040-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "ionic4angular6gqlamp-dev-20190803202040-deployment",
+      "UnauthRoleName": "ionic4angular6gqlamp-dev-20190803202040-unauthRole",
+      "StackName": "ionic4angular6gqlamp-dev-20190803202040",
+      "StackId": "arn:aws:cloudformation:us-east-1:903466642916:stack/ionic4angular6gqlamp-dev-20190803202040/b191cc10-b64d-11e9-8845-0ae8cc519968"
+    }
+  },
+  "api": {
+    "amplify1": {
+      "service": "AppSync",
+      "output": {
+        "securityType": "API_KEY",
+        "GraphQLAPIIdOutput": "i3bd3fedovdhnbrvrfffboislm",
+        "GraphQLAPIEndpointOutput": "https://p3fi2vz35bcgje5owjlisd35jy.appsync-api.us-east-1.amazonaws.com/graphql",
+        "additionalAuthenticationProviders": [],
+        "name": "amplify1",
+        "region": "us-east-1",
+        "GraphQLAPIKeyOutput": "da2-6ncmrri3irccdlvbjrchoydw6a"
+      },
+      "lastPushTimeStamp": "2019-08-04T00:21:46.874Z"
+    }
+  }
 }

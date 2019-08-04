@@ -9,7 +9,7 @@
 <ion-content padding>
 
   <!-- IF NOT AUTHENTICATE -->
-  <div *ngIf="!currentUser$">
+  <!-- <div *ngIf="!currentUser$">
     <form #loginForm="ngForm" novalidate>
       <ion-item>
         <ion-label floating color="primary">Username</ion-label>
@@ -43,11 +43,11 @@
         </ion-col>
       </ion-row>
     </form>
-  </div>
+  </div> -->
 
 
   <!-- IF AUTHENTICATED -->
-  <div *ngIf="currentUser$">
+  <!-- <div *ngIf="currentUser$"> -->
     <ion-item>
       <ion-input type="file" [(ngModel)]="input.file" (ionInput)="saveFile($event)"></ion-input>
       <ion-button (click)="save()">save</ion-button>
@@ -73,5 +73,5 @@
           </ion-item>
         </div>
       </ion-list>
-  </div>
+  <!-- </div> -->
 </ion-content>

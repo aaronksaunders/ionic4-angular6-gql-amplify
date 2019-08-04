@@ -3,17 +3,9 @@ import { Component } from "@angular/core";
 // AWS-AMPLIFY
 // https://github.com/aws-amplify/amplify-cli/blob/master/graphql-transform-tutorial.md
 import Amplify, { API, graphqlOperation, Storage } from "aws-amplify";
-import { ListTours } from "../../graphql/queries.js";
-import {
-  CreateTour,
-  CreatePicture,
-  CreatePictureInput
-} from "../../graphql/mutations.js";
-import { print as gqlToString } from "graphql/language";
 import { Auth } from "aws-amplify";
-import { CognitoUser } from "amazon-cognito-identity-js";
 
-import config from "../../aws-exports";
+import { APIService } from "../API.service";
 
 @Component({
   selector: "app-home",
@@ -26,28 +18,39 @@ export class HomePage {
   currentUser$ = null;
   input = { file: "" };
   credentials: { email?: string; password?: string } = {};
-  imageUrls = [] 
+  imageUrls = [];
 
-  constructor() {
+  constructor(public api : APIService) {
     async () => (this.currentUser$ = await Auth.currentAuthenticatedUser());
+
+    this.testMutation().then(() => {
+      this.doFetchTasks();
+    });
+
+    // this.doFetchImages();
   }
 
   async testMutation() {
-    const { username: owner } = await Auth.currentUserInfo();
+    // const { username: owner } = await Auth.currentUserInfo();
     const visibility = "private";
     try {
-      this.tour$ = ((await API.graphql(
-        graphqlOperation(gqlToString(CreateTour), {
-          input: {
-            name: "reina item two",
-            company: "reina company",
-            email: "reina@company.com",
-            description: "no desc item two",
-            owner: owner
-            // visibility: visibility
-          }
-        })
-      )) as any).data.tour;
+      debugger;
+
+
+      let r = await this.api.ListTours();
+      console.log(r);
+      this.allTours$ = r;
+
+      let r2 = await this.api.CreateTour({
+        name: "reina item two",
+        company: "reina company " + new Date().getMilliseconds(),
+        email: "reina@company.com",
+        description: "no desc item two"
+        // owner: owner
+        // visibility: visibility
+      });
+      console.log(r2);
+
     } catch (ee) {
       console.log(ee);
     }
@@ -77,20 +80,19 @@ export class HomePage {
    *
    */
   async doFetchTasks() {
-    // Simple query
-    // https://github.com/aws-amplify/amplify-js/issues/1237
-    try {
-      this.allTours$ = ((await API.graphql(
-        graphqlOperation(gqlToString(ListTours))
-      )) as any).data.listTours;
-    } catch (ee) {
-      console.log(ee);
-    }
-    console.log(this.allTours$);
+    // // Simple query
+    // // https://github.com/aws-amplify/amplify-js/issues/1237
+    // try {
+    //   this.allTours$ = ((await API.graphql(
+    //     graphqlOperation(listTours)
+    //   )) as any).data.listTours;
+    // } catch (ee) {
+    //   console.log(ee);
+    // }
+    // console.log(this.allTours$);
   }
 
   async doFetchImages() {
-
     try {
       let allImages = await Storage.list("");
       let imagePromise = [];
@@ -100,7 +102,7 @@ export class HomePage {
 
       this.imageUrls = await Promise.all(imagePromise);
 
-      console.log(this.imageUrls );
+      console.log(this.imageUrls);
     } catch (ee) {
       console.log(ee);
     }
@@ -110,7 +112,7 @@ export class HomePage {
    *
    */
   doLogin() {
-    Auth.signIn()
+    Auth.signIn("", "")
       .then(user => {
         return Auth.currentAuthenticatedUser();
       })
@@ -120,6 +122,6 @@ export class HomePage {
 
         this.doFetchImages();
       })
-      .catch(err => console.log(err.message));
+      .catch(err => console.log(err));
   }
 }
