@@ -9,6 +9,11 @@
             "UnauthRoleName": "ionic4angular6gqlamp-dev-20190803202040-unauthRole",
             "StackName": "ionic4angular6gqlamp-dev-20190803202040",
             "StackId": "arn:aws:cloudformation:us-east-1:903466642916:stack/ionic4angular6gqlamp-dev-20190803202040/b191cc10-b64d-11e9-8845-0ae8cc519968"
+        },
+        "categories": {
+            "auth": {
+                "ionic4angular6gqlamp92673b92": {}
+            }
         }
     }
 }

@@ -1,29 +1,51 @@
 {
-  "providers": {
-    "awscloudformation": {
-      "AuthRoleName": "ionic4angular6gqlamp-dev-20190803202040-authRole",
-      "UnauthRoleArn": "arn:aws:iam::903466642916:role/ionic4angular6gqlamp-dev-20190803202040-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::903466642916:role/ionic4angular6gqlamp-dev-20190803202040-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "ionic4angular6gqlamp-dev-20190803202040-deployment",
-      "UnauthRoleName": "ionic4angular6gqlamp-dev-20190803202040-unauthRole",
-      "StackName": "ionic4angular6gqlamp-dev-20190803202040",
-      "StackId": "arn:aws:cloudformation:us-east-1:903466642916:stack/ionic4angular6gqlamp-dev-20190803202040/b191cc10-b64d-11e9-8845-0ae8cc519968"
-    }
-  },
-  "api": {
-    "amplify1": {
-      "service": "AppSync",
-      "output": {
-        "securityType": "API_KEY",
-        "GraphQLAPIIdOutput": "i3bd3fedovdhnbrvrfffboislm",
-        "GraphQLAPIEndpointOutput": "https://p3fi2vz35bcgje5owjlisd35jy.appsync-api.us-east-1.amazonaws.com/graphql",
-        "additionalAuthenticationProviders": [],
-        "name": "amplify1",
-        "region": "us-east-1",
-        "GraphQLAPIKeyOutput": "da2-6ncmrri3irccdlvbjrchoydw6a"
-      },
-      "lastPushTimeStamp": "2019-08-04T00:21:46.874Z"
-    }
-  }
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "ionic4angular6gqlamp-dev-20190803202040-authRole",
+			"UnauthRoleArn": "arn:aws:iam::903466642916:role/ionic4angular6gqlamp-dev-20190803202040-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::903466642916:role/ionic4angular6gqlamp-dev-20190803202040-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "ionic4angular6gqlamp-dev-20190803202040-deployment",
+			"UnauthRoleName": "ionic4angular6gqlamp-dev-20190803202040-unauthRole",
+			"StackName": "ionic4angular6gqlamp-dev-20190803202040",
+			"StackId": "arn:aws:cloudformation:us-east-1:903466642916:stack/ionic4angular6gqlamp-dev-20190803202040/b191cc10-b64d-11e9-8845-0ae8cc519968"
+		}
+	},
+	"api": {
+		"amplify1": {
+			"service": "AppSync",
+			"output": {
+				"securityType": "API_KEY",
+				"GraphQLAPIIdOutput": "i3bd3fedovdhnbrvrfffboislm",
+				"GraphQLAPIEndpointOutput": "https://p3fi2vz35bcgje5owjlisd35jy.appsync-api.us-east-1.amazonaws.com/graphql",
+				"additionalAuthenticationProviders": [],
+				"name": "amplify1",
+				"region": "us-east-1",
+				"GraphQLAPIKeyOutput": "da2-6ncmrri3irccdlvbjrchoydw6a"
+			},
+			"lastPushTimeStamp": "2019-08-04T00:21:46.874Z"
+		}
+	},
+	"auth": {
+		"ionic4angular6gqlamp92673b92": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/ionic4angular6gqlamp-dev-20190803202040-deployment/amplify-cfn-templates/auth/ionic4angular6gqlamp92673b92-cloudformation-template.yml",
+				"logicalId": "authionic4angular6gqlamp92673b92"
+			},
+			"lastPushTimeStamp": "2019-08-06T05:45:33.434Z",
+			"output": {
+				"AppClientSecret": "sibsqp6jg0pi7nr0n1r7il9fm5nkkrpqevg2ilgkdh5li2rb51d",
+				"UserPoolId": "us-east-1_7qMIeKSZC",
+				"AppClientIDWeb": "1gvlifoqsan511cmcgjqu9606k",
+				"AppClientID": "5dp7624tuflq7sgo86u1bukgd0",
+				"IdentityPoolId": "us-east-1:dc1f669b-65d3-4e09-a81e-0102f56c42b9",
+				"IdentityPoolName": "ionic4angular6gqlamp92673b92_identitypool_92673b92__dev",
+				"UserPoolName": "ionic4angular6gqlamp92673b92_userpool_92673b92"
+			},
+			"lastPushDirHash": "Q7qfgAKjZQrrFIdMQhdLCTU6dAo="
+		}
+	}
 }

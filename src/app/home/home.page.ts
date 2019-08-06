@@ -20,14 +20,23 @@ export class HomePage {
   credentials: { email?: string; password?: string } = {};
   imageUrls = [];
 
-  constructor(public api : APIService) {
+  constructor(public api: APIService) {
     async () => (this.currentUser$ = await Auth.currentAuthenticatedUser());
 
-    this.testMutation().then(() => {
-      this.doFetchTasks();
-    });
+    // this.testMutation().then(() => {
+    //   this.doFetchTasks();
+    // });
 
     // this.doFetchImages();
+    this.doAuth();
+  }
+
+  async doAuth() {
+    try {
+      this.currentUser$ = await Auth.signIn("aaron@clearlyinnovative.com", "password");
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   async testMutation() {
@@ -35,7 +44,6 @@ export class HomePage {
     const visibility = "private";
     try {
       debugger;
-
 
       let r = await this.api.ListTours();
       console.log(r);
@@ -50,7 +58,6 @@ export class HomePage {
         // visibility: visibility
       });
       console.log(r2);
-
     } catch (ee) {
       console.log(ee);
     }

@@ -1,1 +1,9 @@
-{}
+{
+	"auth": {
+		"ionic4angular6gqlamp92673b92": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}
